@@ -1,0 +1,94 @@
+all pets array -> pets // e.g., total size is 11 (5 dogs, 6 cats)
+
+=== Filtering ===
+Pet[] filter(String petType)
+    petType -> D or C
+
+    filterSize = 0
+    work out size of new array:
+        loop through all pets array
+            make sure current pet is not null
+            check type -> D instanceof Dog or C instanceof Cat:
+                filterSize++
+    
+    // e.g., filterSize = 5 dogs
+    created filteredPets new array with filteredSize
+    filteredPetsIndex = 0
+
+    put dogs into the new array
+        loop through all pets array
+            make sure current pet is not null
+            check type -> D instanceof Dog or C instanceof Cat:
+                add current pet to filteredPets at filteredPetsIndex
+                filteredPetsIndex++
+
+    return filteredPets
+
+=== Sorting ===
+void sort(String sortDirection, Pet[] petsArray)
+    sortDirection -> A or D (ascending or descending)
+
+    bubbleOccurred = true
+    loop while a bubble has occurred:
+        bubbleOccurred = false
+
+        loop through array i from 0 to less than size - 1:
+        
+        	logic:
+        	a equals array at i
+        	b equals array at i + 1
+        	c equals a.compareTo(b)
+        
+            compare array[i] to array[i + 1]
+            if sortDirection ascending AND c is greater than 0
+            OR 
+            if sortDirection descending AND c is less than 0:
+                swap array[i] with array[i + 1]
+                temp = array[i]
+                array[i] = array[i + 1]
+                array[i + 1] = temp
+                bubbleOccurred = true
+                
+                
+                
+sorting notes:
+void sort(String sortDirection, Pet[] petsArray)
+    sortDirection -> A or D (ascending or descending)
+
+	swapped = true
+	while(swapped):
+		swapped = false;
+		
+		loop through array i from 0 to less than size - 1:
+        	a equals array at i
+        	b equals array at i + 1
+        	c equals a.compareTo(b)
+        	
+        	if sortDirection is A AND C is greater than 0
+        		swap array[i] with array[i + 1]
+        	if sortDirection is D AND C is less than 0
+        		swap array[i] with array[i + 1]
+        	
+        	COMBINE LOGIC:
+        	if sortDirection is A AND C is greater than 0
+        	OR
+        	if sortDirection is D AND C is less than 0
+        		swap array[i] with array[i + 1]
+        		temp = array[i]
+        		array[i] = array[i + 1]
+        		array[a + 1] = temp
+        		swapped = true
+        	
+        		--need to create temp variable so our values are not lost when we swap
+
+    
+
+=== Filter & Sorting ===
+Pet[] filterAndSort(String petType, String sortDirection)
+    filteredPets = filter(petType)    --filtered but not sorted
+    --call the sort method:
+    sort(sortDirection, filteredPets)
+
+    return filteredPets
+
+  
